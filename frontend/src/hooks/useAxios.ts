@@ -114,9 +114,10 @@ function useAxios<T>(
             const combinedParams = {...params, ...newParams};
             setParams(combinedParams);
 
-            const cacheKey = JSON.stringify({...config, params: combinedParams});
+            let cacheKey: string | undefined;
 
             if (cacheEnabled) {
+                cacheKey = JSON.stringify({...config, params: combinedParams});
                 const cachedData = getCachedData(cacheKey) as T | null;
                 if (cachedData) {
                     console.log("Using cached data");
@@ -146,7 +147,7 @@ function useAxios<T>(
                         signal: abortController.current?.signal,
                     });
 
-                    if (cacheEnabled) saveToCache(cacheKey, response.data);
+                    if (cacheEnabled && cacheKey) saveToCache(cacheKey, response.data);
 
                     setData(response.data);
                 } catch (err) {
