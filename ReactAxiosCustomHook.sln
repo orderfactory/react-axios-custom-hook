@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactAxiosCustomHook.AppHost", "ReactAxiosCustomHook.AppHost\ReactAxiosCustomHook.AppHost.csproj", "{CF67D237-9A30-4940-9BC3-90CC7D08A639}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactAxiosCustomHook.ServiceDefaults", "ReactAxiosCustomHook.ServiceDefaults\ReactAxiosCustomHook.ServiceDefaults.csproj", "{75117CF9-CCFE-817F-1A6C-1D56E2F33357}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF67D237-9A30-4940-9BC3-90CC7D08A639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF67D237-9A30-4940-9BC3-90CC7D08A639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF67D237-9A30-4940-9BC3-90CC7D08A639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF67D237-9A30-4940-9BC3-90CC7D08A639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75117CF9-CCFE-817F-1A6C-1D56E2F33357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75117CF9-CCFE-817F-1A6C-1D56E2F33357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75117CF9-CCFE-817F-1A6C-1D56E2F33357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75117CF9-CCFE-817F-1A6C-1D56E2F33357}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {476ACB9D-2693-4D2A-9BAF-44C9D662B114}
+	EndGlobalSection
+EndGlobal
