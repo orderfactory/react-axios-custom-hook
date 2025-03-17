@@ -1,0 +1,6 @@
+@ReactAxiosCustomHook.WebApi_HostAddress = http://localhost:5228
+
+GET {{ReactAxiosCustomHook.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
