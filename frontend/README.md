@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+# frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The demo's React page, built with Vite and TypeScript. It runs under the Aspire AppHost (see the [root README](../README.md)), which installs the npm packages, starts the dev server, and passes it the web API's address in the `WEBAPI_HTTPS` and `WEBAPI_HTTP` environment variables. The dev server proxies `/api` to that address.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Script            | What it does                                                                                   |
+|-------------------|------------------------------------------------------------------------------------------------|
+| `npm run dev`     | Starts the Vite dev server. The AppHost runs it for you.                                       |
+| `npm test`        | Runs Vitest in watch mode; `npx vitest run` runs the tests once.                               |
+| `npm run lint`    | Runs ESLint with typescript-eslint, eslint-plugin-react-hooks, and eslint-plugin-react-refresh. |
+| `npm run build`   | Type-checks with `tsc -b` and builds to `dist`.                                                |
+| `npm run preview` | Serves the build locally.                                                                      |
 
-## Expanding the ESLint configuration
+## Layout
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- `src/hooks/getWithRetry.ts`: the retry loop, a plain function.
+- `src/hooks/useAxios.ts`: the hook.
+- `src/weather-forecast/`: the domain hook `useWeatherForecast` and the page that calls it.
+- `src/test/`: the test setup and a local HTTP server that the tests use as their API.
+- Tests sit next to the code they test, as `*.test.ts` and `*.test.tsx`.
 
-- Configure the top-level `parserOptions` property like this:
+## Configuration notes
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Linting uses the recommended preset of eslint-plugin-react-hooks, which includes the React Compiler's checks. The React Compiler itself is not enabled.
+- TypeScript stays on 6.0 because typescript-eslint supports only TypeScript versions below 6.1.
+- `tsconfig.app.json` keeps the tests out of the app; `tsconfig.test.json` type-checks them, with Node's types.
+- Vitest runs the tests in jsdom. `getWithRetry.test.ts` opts into the Node environment, so the two environments exercise both of Axios's adapters: XMLHttpRequest and Node's HTTP.

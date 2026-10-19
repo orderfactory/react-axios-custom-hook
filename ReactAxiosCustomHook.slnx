@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="frontend/frontend.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="ReactAxiosCustomHook.AppHost/ReactAxiosCustomHook.AppHost.csproj" />
+  <Project Path="ReactAxiosCustomHook.ServiceDefaults/ReactAxiosCustomHook.ServiceDefaults.csproj" />
+  <Project Path="ReactAxiosCustomHook.WebApi/ReactAxiosCustomHook.WebApi.csproj" />
+</Solution>
